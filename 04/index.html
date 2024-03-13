@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            width: 50%;
+            max-width: 400px;
+            padding: 55px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="http://191.252.62.149:8080/pweb/salvar.jsp" method="post">
+        Login:<br>
+        <input type="text" name="Login"><br>
+        Senha:<br>
+        <input type="password" name="senha"><br>
+        Confirme a senha:<br>
+        <input type="password" name="Confirmasenha"><br>
+        Nome:<br>
+        <input type="text" name="nome"><br>
+        UF:<br>
+        <select name="UF" id="UF">
+            <option value="Piaui">Piauí</option>
+            <option value="Maranhao">Maranhão</option>
+            <option value="Sao Paulo">São Paulo</option>
+            <option value="Alagoas">Alagoas</option>
+        </select><br>
+
+        Sexo:<br>
+        <input type="radio" name="sexo" value="Masculino">Masculino<br>
+        <input type="radio" name="sexo" value="Feminino">Feminino<br>
+        Email:<br>
+        <input type="email" name="email"><br>
+        Interesses:<br>
+        <input type="checkbox" name="Interesses" value="futebol">Futebol<br>
+        <input type="checkbox" name="Interesses" value="Politica">Política<br>
+        <input type="checkbox" name="Interesses" value="Economia">Economia<br>
+        <input type="checkbox" name="Interesses" value="carro">Carro<br>
+        <input type="checkbox" name="Interesses" value="celebridades">Celebridades<br>
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
