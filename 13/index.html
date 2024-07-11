@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação Web</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <style>
+        .box {
+            background: #b9b9b9;
+            width: 300px;
+            height: 140px;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 20px 10px 30px 50px;
+        }
+        .flor{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100px;
+            height: 100px;
+        }
+        .flor div{
+            width: 50px;
+            height: 50px;
+        }
+        .flor .flor1{
+            background: #fa0606;
+            border-radius:0px 30px 0px 30px
+        }
+        .flor .flor2{
+            background: #0616fa;
+            border-radius:30px 0px 30px 0px
+        }
+        .flor .flor3{
+            background: #3bff0a;
+            border-radius:30px 0px 30px 0px
+        }
+        .flor .flor4{
+            background: #fbff0c;
+            border-radius:0px 30px 0px 30px
+        }
+        
+        .circle {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .circle div {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+        }
+        .circle .quarter1 {
+            background: red;
+            top: 0;
+            left: 0;
+        }
+        .circle .quarter2 {
+            background: orange;
+            top: 0;
+            right: 0;
+        }
+        .circle .quarter3 {
+            background: green;
+            bottom: 0;
+            left: 0;
+        }
+        .circle .quarter4 {
+            background: purple;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <fieldset class="box">
+        <legend>Dados Pessoais</legend>
+        <p>Nome: <input type="text"/> </p>
+        <p>Gmail: <input type="text"/> </p>
+    </fieldset>
+
+    <div class="caixa">
+        <div class="circle">
+            <div class="quarter1"></div>
+            <div class="quarter2"></div>
+            <div class="quarter3"></div>
+            <div class="quarter4"></div>
+        </div>
+        <div class="flor">
+            <div class="flor1"></div>
+            <div class="flor2"></div>
+            <div class="flor3"></div>
+            <div class="flor4"></div>
+
+        </div>
+    </div>
+</body>
+</html>
