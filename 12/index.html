@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributo Data</title>
+    <style>
+        .pessoa {
+            color: red;
+        }
+        .pessoa[data-idade="33"] {
+            color: aqua;
+        }
+        .pessoa::before {
+            content: 'NOME: ' attr(data-nome) ', ';
+        }
+        .pessoa::after {
+            content: ' (Idade: ' attr(data-idade) ', CPF: ' attr(data-cpf) ') depois';
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="pessoa" onclick="mostra(this)" data-idade="19" data-cpf="111.111.111-11" data-nome="pedro"> pedro </li>
+    <li class="pessoa" onclick="mostra(this)" data-idade="22" data-cpf="222.222.222-22" data-nome="maria"> maria </li>
+    <li class="pessoa" onclick="mostra(this)" data-idade="33" data-cpf="333.333.333-33" data-nome="joao"> joaoaaa </li>
+</ul>
+<script type="text/javascript">
+    function mostra(item) {
+        var idade = item.getAttribute('data-idade');
+        var nome = item.getAttribute('data-nome');
+        var cpf = item.getAttribute('data-cpf');
+        alert('Idade: ' + idade);
+        alert('Nome: ' + nome);
+        alert('CPF: ' + cpf);
+    }
+</script>
+</body>
+</html>
