@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .facebook-button, .google-button {
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .facebook-button {
+            background-color: #3b5998;
+            color: white;
+        }
+        .google-button {
+            background-color: #db4437;
+            color: white;
+        }
+        .facebook-button:hover, .google-button:hover {
+            opacity: 0.9;
+        }
+        .social-buttons button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-buttons i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="container mt-5">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#janela">
+            Logar
+        </button>
+        
+        <div class="modal fade" id="janela" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cabeçalho</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    <input type="text" class="form-control" id="nome" placeholder="Digite seu E-mail">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="senha" class="form-label">Senha:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    <input type="password" class="form-control" id="senha" placeholder="Digite sua Senha">
+                                </div>
+                            </div>
+                            <div class="mb-3 d-flex justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="remember-me">
+                                    <label for="remember-me" class="form-check-label">Lembrar-me</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Entrar</button>
+                            </div>
+                        </form>
+                        <div class="social-buttons mt-3">
+                            <button class="facebook-button btn">
+                                <i class="fab fa-facebook-f"></i> Entrar com o Facebook
+                            </button>
+                            <button class="google-button btn">
+                                <i class="fab fa-google"></i> Entrar com o Google
+                            </button>
+                        </div>
+                        <p><a href="#">Esqueceu sua senha?</a></p>
+                        <p>Ainda não tem uma conta? <a href="#">Cadastre-se</a></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Salvar mudanças</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
