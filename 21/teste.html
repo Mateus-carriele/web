@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Produtos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .btn-group {
+            margin-bottom: 15px;
+        }
+
+        .btn-group>.btn {
+            margin-right: 5px;
+        }
+
+        .btn-group>.btn:last-child {
+            margin-right: 0;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .button-container>.btn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <!-- Botões de Ações -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="button-container">
+                    <button class="btn btn-primary">Pedidos Recentes</button>
+                    <button class="btn btn-primary">Enviar Cliente</button>
+                    <button class="btn btn-primary">Receber Pagamento</button>
+                    <button class="btn btn-primary">Todos os Pedidos</button>
+                    <button class="btn btn-primary">Novo Pedido</button>
+                    <button class="btn btn-primary">Página Principal</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabela de Produtos -->
+        <div class="card">
+            <div class="card-header">
+                Pesquisa de Produtos
+            </div>
+            <div class="card-body">
+                <!-- Botões de Pesquisa e Novo -->
+                <div class="button-container">
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" placeholder="Descrição">
+                    </div>
+                    <button class="btn btn-secondary">Pesquisar</button>
+                    <button class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#novoProdutoModal">Novo</button>
+                    <button class="btn btn-secondary">
+                        <i class="bi bi-arrow-clockwise"></i> Recarregar
+                    </button>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descrição</th>
+                            <th>Situação</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Pizza</td>
+                            <td><span class="badge bg-success">Ativo</span></td>
+                            <td>
+                                <!-- Botão de Ver Detalhes -->
+                                <button class="btn btn-info btn-sm" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="Ver Detalhes">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                                <!-- Botão de Editar -->
+                                <button class="btn btn-warning btn-sm" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="Editar">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <!-- Botão de Remover com Popover -->
+                                <button type="button" class="btn btn-danger btn-sm" id="btnRemover"
+                                    data-bs-toggle="popover" data-bs-trigger="focus" title="Confirmar Exclusão"
+                                    data-bs-html="true"
+                                    data-bs-content='<div class="text-center"><button class="btn btn-sm btn-danger" onclick="confirmarRemocao()">Sim</button> <button class="btn btn-sm btn-secondary" onclick="cancelarRemocao()">Não</button></div>'>
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal para Novo Produto -->
+        <div class="modal fade" id="novoProdutoModal" tabindex="-1" aria-labelledby="novoProdutoModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="novoProdutoModalLabel">Novo Produto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="nomeProduto" class="form-label">Nome do Produto</label>
+                                <input type="text" class="form-control" id="nomeProduto" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="precoProduto" class="form-label">Preço</label>
+                                <input type="number" class="form-control" id="precoProduto" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="categoriaProduto" class="form-label">Categoria</label>
+                                <select class="form-control" id="categoriaProduto" required>
+                                    <option value="Alimentos">Alimentos</option>
+                                    <option value="Bebidas">Bebidas</option>
+                                    <option value="Eletrônicos">Eletrônicos</option>
+                                    <option value="Roupas">Roupas</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="quantidadeProduto" class="form-label">Quantidade</label>
+                                <input type="number" class="form-control" id="quantidadeProduto" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar Produto</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Ativando Tooltips e Popovers -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Ativando todos os tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Ativando todos os popovers
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+            popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl);
+            });
+        });
+
+        function confirmarRemocao() {
+            alert('Produto removido!');
+            // Aqui você pode adicionar a lógica de remoção do produto
+        }
+
+        function cancelarRemocao() {
+            alert('Remoção cancelada!');
+            // Aqui você pode adicionar a lógica para cancelar a remoção
+        }
+    </script>
+</body>
+
+</html>
