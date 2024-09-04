@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+            background-color: #f4f6f9;
             margin: 0;
             padding: 20px;
             color: #333;
         }
         h1 {
             text-align: center;
-            color: #4a4a4a;
-            margin-bottom: 20px;
+            color: #343a40;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
         }
         table {
             margin: 20px auto;
@@ -23,104 +25,145 @@
             width: 90%;
             max-width: 900px;
             background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             overflow: hidden;
         }
-        th, td {
+        thead {
+            background-color: #007bff;
+            color: #fff;
+        }
+        th {
+            text-align: center;
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            font-weight: bold;
+        }
+        td {
             text-align: center;
             padding: 15px;
             border-bottom: 1px solid #e0e0e0;
         }
         th a {
             text-decoration: none;
-            color: #1a73e8;
+            color: #fff;
             font-weight: bold;
         }
         th a:hover {
+            color: #f8f9fa;
             text-decoration: underline;
-            color: #0d5bb5;
         }
         tr:nth-child(odd) {
-            background-color: #f8f9fa;
+            background-color: #f9f9f9;
+        }
+        tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .table-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .table-header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-
-    <h1>Mateus Carriele da Cruz Gomes</h1><br>
-    <table>
-        <tr>
-            <th><a href="01">Atividade 01</a> - Link</th>
-        </tr>
-        <tr>    
-            <th><a href="02">Atividade 02</a> - Mais Tags</th>
-        </tr>
-        <tr>
-            <th><a href="03">Atividade 03</a> - Tabelas HTML</th>
-        </tr>
-        <tr>
-            <th><a href="04">Atividade 04</a> - Formulários</th>
-        </tr>
-        <tr>
-            <th><a href="05">Atividade 05</a> - Viagem</th>
-        </tr>
-        <tr>
-            <th><a href="06">Atividade 06</a> - Fontes e Cores</th>
-        </tr>
-        <tr>
-            <th><a href="07">Atividade 07</a> - Família de Fontes</th>
-        </tr>
-        <tr>
-            <th><a href="08">Atividade 08</a> - Box Model</th>
-        </tr>
-        <tr>
-            <th><a href="09">Atividade 09</a> - Posicionamentos</th>
-        </tr>
-        <tr>
-            <th><a href="10">Atividade 10</a> - Tags nav, header, footer</th>
-        </tr>
-        <tr>
-            <th><a href="11">Atividade 11</a> - Tag article, section, time, aside</th>
-        </tr>
-        <tr>
-            <th><a href="12">Atividade 12</a> - Box Model</th>
-        </tr>
-        <tr>
-            <th><a href="13">Atividade 13</a> - Introdução ao CSS3</th>
-        </tr>
-        <tr>
-            <th><a href="14">Atividade 14</a> - Transparências, Sombras, Gradientes</th>
-        </tr>
-        <tr>
-            <th><a href="15">Atividade 15</a> Atividade  </th>
-        </tr>
-        <tr>
-            <th><a href="16">Atividade 16</a> Atividade  </th>
-        </tr>
-        <tr>
-            <th><a href="17">Atividade 17</a> Atividade  </th>
-        </tr>
-        <tr>
-            <th><a href="18">Atividade 18</a> Atividade </th>
-        </tr>
-        <tr>
-            <th><a href="19">Atividade 19</a> Atividade  </th>
-        </tr>
-        <tr>
-            <th><a href="20">Atividade 20</a> Atividade  </th>
-        </tr>
-        <tr>
-            <th><a href="21">Atividade 21</a> Atividade  </th>
-        </tr>
-        <tr>
-            <th><a href="22">Atividade 22</a> Atividade  </th>
-        </tr>
-        <tr>
-            <th><a href="23">Atividade 23</a> Atividade  </th>
-        </tr>
-    </table>
-
-
+    <h1>Mateus Carriele da Cruz Gomes</h1>
+    <div class="table-container">
+        <div class="table-header">
+            Atividades
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="01">Atividade 01</a> - Introdução ao HTML: Criação de uma página básica com HTML.</td>
+                </tr>
+                <tr>    
+                    <td><a href="02">Atividade 02</a> - Mais Tags HTML: Uso de tags HTML adicionais e suas propriedades.</td>
+                </tr>
+                <tr>
+                    <td><a href="03">Atividade 03</a> - Tabelas HTML: Estrutura e estilização de tabelas HTML.</td>
+                </tr>
+                <tr>
+                    <td><a href="04">Atividade 04</a> - Formulários HTML: Criação e estilização de formulários.</td>
+                </tr>
+                <tr>
+                    <td><a href="05">Atividade 05</a> - Viagem: Desenvolvimento de uma página sobre um destino de viagem.</td>
+                </tr>
+                <tr>
+                    <td><a href="06">Atividade 06</a> - Fontes e Cores: Aplicação de fontes e cores CSS para estilização de texto.</td>
+                </tr>
+                <tr>
+                    <td><a href="07">Atividade 07</a> - Família de Fontes: Estilização avançada de fontes usando famílias tipográficas.</td>
+                </tr>
+                <tr>
+                    <td><a href="08">Atividade 08</a> - Box Model: Compreensão e aplicação do modelo de caixa CSS.</td>
+                </tr>
+                <tr>
+                    <td><a href="09">Atividade 09</a> - Posicionamentos: Técnicas de posicionamento e layout com CSS.</td>
+                </tr>
+                <tr>
+                    <td><a href="10">Atividade 10</a> - Tags nav, header, footer: Utilização de tags HTML5 para navegação e estrutura de página.</td>
+                </tr>
+                <tr>
+                    <td><a href="11">Atividade 11</a> - Tags article, section, time, aside: Uso de tags semânticas HTML5 para estruturação de conteúdo.</td>
+                </tr>
+                <tr>
+                    <td><a href="12">Atividade 12</a> - Box Model Avançado: Aplicação de técnicas avançadas no modelo de caixa.</td>
+                </tr>
+                <tr>
+                    <td><a href="13">Atividade 13</a> - Introdução ao CSS3: Conceitos e novas funcionalidades do CSS3.</td>
+                </tr>
+                <tr>
+                    <td><a href="14">Atividade 14</a> - Transparências, Sombras, Gradientes: Aplicação de efeitos avançados com CSS3.</td>
+                </tr>
+                <tr>
+                    <td><a href="15">Atividade 15</a> - Animações CSS: Criação de animações e transições utilizando CSS3.</td>
+                </tr>
+                <tr>
+                    <td><a href="16">Atividade 16</a> - Flexbox: Layouts responsivos e flexíveis usando Flexbox.</td>
+                </tr>
+                <tr>
+                    <td><a href="17">Atividade 17</a> - Grid Layout: Uso do Grid Layout para construção de layouts complexos.</td>
+                </tr>
+                <tr>
+                    <td><a href="18">Atividade 18</a> - Design Responsivo: Técnicas para criação de layouts responsivos e adaptáveis.</td>
+                </tr>
+                <tr>
+                    <td><a href="19">Atividade 19</a> - Botões e Imagens Responsivas: Criação de botões e imagens que se adaptam a diferentes tamanhos de tela.</td>
+                </tr>
+                <tr>
+                    <td><a href="20">Atividade 20</a> - Formulários e Tabelas: Estilização e aprimoramento de formulários e tabelas.</td>
+                </tr>
+                <tr>
+                    <td><a href="21">Atividade 21</a> - Alerts, Tooltips e Popovers: Implementação de elementos de feedback e dicas com CSS e JavaScript.</td>
+                </tr>
+                <tr>
+                    <td><a href="22">Atividade 22</a> - Introdução ao JavaScript: Conceitos básicos e primeiros passos com JavaScript.</td>
+                </tr>
+                <tr>
+                    <td><a href="23">Atividade 23</a> - JQuery: Manipulação de DOM e eventos com a biblioteca jQuery.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 </body>
 </html>
