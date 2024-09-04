@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de CEP</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .cep-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Consulta de CEP</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="cepInput" class="form-label">Digite o CEP:</label>
+                    <input type="text" class="form-control" id="cepInput" placeholder="Ex: 64019-368" maxlength="9">
+                </div>
+                <button class="btn btn-primary" onclick="consultarCep()">Consultar</button>
+                <div class="cep-info mt-4" id="cepInfo"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+   
+    <script>
+        async function consultarCep() {
+            const cep = document.getElementById('cepInput').value;
+            if (cep === '' || !/^\d{5}-?\d{3}$/.test(cep)) {
+                alert("Por favor, insira um CEP válido no formato 00000-000.");
+                return;
+            }
+
+            const cepFormatado = cep.replace('-', '');
+            const url = `https://viacep.com.br/ws/${cepFormatado}/json/`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+               
+                if (data.erro) {
+                    document.getElementById('cepInfo').innerHTML = `<div class="alert alert-danger">CEP não encontrado.</div>`;
+                } else {
+                    document.getElementById('cepInfo').innerHTML = `
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">Informações do CEP</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Detalhes do CEP ${data.cep}</h5>
+                                <p><strong>Logradouro:</strong> ${data.logradouro}</p>
+                                <p><strong>Bairro:</strong> ${data.bairro}</p>
+                                <p><strong>Cidade:</strong> ${data.localidade}</p>
+                                <p><strong>Estado:</strong> ${data.uf}</p>
+                                <p><strong>Complemento:</strong> ${data.complemento || 'N/A'}</p>
+                                <p><strong>DDD:</strong> ${data.ddd}</p>
+                            </div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error("Erro ao consultar o CEP:", error);
+                document.getElementById('cepInfo').innerHTML = `<div class="alert alert-danger">Erro ao consultar o CEP. Tente novamente mais tarde.</div>`;
+            }
+        }
+    </script>
+</body>
+</html>
+
+

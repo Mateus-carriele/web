@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Raiz Quadrada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .button-container {
+            margin: 20px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-text {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button onclick="openModal()">Calcular Raiz Quadrada</button>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-text" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            // Solicita o número ao usuário
+            const number = prompt("Digite um número:");
+            if (number !== null && !isNaN(number) && number.trim() !== "") {
+                const sqrt = Math.sqrt(parseFloat(number)).toFixed(2);
+                document.getElementById("result").innerText = `A raiz quadrada de ${number} é ${sqrt}.`;
+                document.getElementById("myModal").style.display = "block";
+            } else {
+                alert("Por favor, insira um número válido.");
+            }
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("myModal")) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
